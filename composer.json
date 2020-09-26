@@ -1,0 +1,20 @@
+{
+    "name": "budisteikul/coresdk",
+    "description": "Core SDK",
+    "authors": [
+        {
+            "name": "Budi",
+            "email": "aku@budi.my.id"
+        }
+    ],
+    "require": {
+    	"laravel/ui": "^2.1",
+        "yajra/laravel-datatables-buttons": "^4.9",
+        "yajra/laravel-datatables-oracle": "^9.9"
+    },
+    "autoload": {
+   		"psr-4": {
+        	"budisteikul\\coresdk\\": "src/"
+    	}
+	}
+}
