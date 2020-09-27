@@ -49,7 +49,7 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-          <i class="fas fa-fw fa-list"></i>
+          <i class="fas fa-fw fa-user-shield"></i>
           <span>ADMINISTRATOR</span>
         </a>
         <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
@@ -71,7 +71,7 @@
 
       <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-          <i class="fas fa-fw fa-list"></i>
+          <i class="fas fa-fw fa-binoculars"></i>
           <span>MONITORING</span>
         </a>
         <div id="collapse2" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
@@ -96,7 +96,7 @@
 
       <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-          <i class="fas fa-fw fa-list"></i>
+          <i class="fas fa-fw fa-boxes"></i>
           <span>INVENTORY</span>
         </a>
         <div id="collapse3" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
@@ -121,7 +121,7 @@
 
       <li class="nav-item {{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-          <i class="fas fa-fw fa-list"></i>
+          <i class="fas fa-fw fa-shopping-cart"></i>
           <span>POINT OF SALES</span>
         </a>
         <div id="collapse4" class="collapse {{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading4" data-parent="#accordionSidebar">
