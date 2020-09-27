@@ -170,8 +170,16 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                <i class="fas fa-2x fa-user-circle"></i>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 text-right">
+                  {{ Auth::user()->name }} 
+                  @if (Route::has('route_outletsdk_outlets.index'))
+                  <br />
+                  @inject('Outlets', budisteikul\outletsdk\Classes\OutletClass)
+                  <b>{{ $Outlets->outletName(Session::get('outlet_id')) }}</b>
+                  @endif
+                </span>
+               
+                <i class="ml-2 fas fa-3x fa-user-circle"></i>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
