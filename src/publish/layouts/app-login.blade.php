@@ -55,100 +55,10 @@
                                 </li>
                             @endif
                         @else
-                            
-                              <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-list"></i> Administrator <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @if (Route::has('route_outletsdk_outlets.index'))
-                                    <a class="dropdown-item" href="{{ route('route_outletsdk_outlets.index') }}"><i class="far fa-circle"></i> {{ __('Outlets') }}</a>
-                                    @endif
-                                    @if (Route::has('route_productsdk_products.index'))
-                                    <a class="dropdown-item" href="{{ route('route_productsdk_products.index') }}"><i class="far fa-circle"></i> {{ __('Product') }}</a>
-                                    @endif
-                                    @if (Route::has('route_discountsdk_discounts.index'))
-                                    <a class="dropdown-item" href="{{ route('route_discountsdk_discounts.index') }}"><i class="far fa-circle"></i> {{ __('Discount') }}</a>
-                                    @endif
-                                </div>
-                              </li>
-                             
-                             @if (Route::has('route_monitoringsdk_stocks.index'))
-                              <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-list"></i> Monitoring <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @if (Route::has('route_monitoringsdk_stocks.index'))
-                                    <a class="dropdown-item" href="{{ route('route_monitoringsdk_stocks.index') }}"><i class="far fa-circle"></i> Stocks</a>
-                                    @endif
-                                    @if (Route::has('route_monitoringsdk_transactions.index'))
-                                    <a class="dropdown-item" href="{{ route('route_monitoringsdk_transactions.index') }}"><i class="far fa-circle"></i> Transaction</a>
-                                    @endif
-                                    @if (Route::has('route_monitoringsdk_dos.index'))
-                                    <a class="dropdown-item" href="{{ route('route_monitoringsdk_dos.index') }}"><i class="far fa-circle"></i> Delivery Order</a>
-                                    @endif
-                                    @if (Route::has('route_monitoringsdk_sales.index'))
-                                    <a class="dropdown-item" href="{{ route('route_monitoringsdk_sales.index') }}"><i class="far fa-circle"></i> Sales</a>
-                                    @endif
-                                </div>
-                              </li>
-                              @endif
-
-                             @if (Route::has('route_stocksdk_stocks'))
-                              <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-list"></i> Inventory <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @if (Route::has('route_stocksdk_stocks'))
-                                    <a class="dropdown-item" href="{{ route('route_stocksdk_stocks') }}"><i class="far fa-circle"></i> Stocks</a>
-                                    @endif
-                                    @if (Route::has('route_stocksdk_posaddstock.index'))
-                                    <a class="dropdown-item" href="{{ route('route_stocksdk_addstock.index') }}"><i class="far fa-circle"></i> Add Stock</a>
-                                    @endif
-                                    @if (Route::has('route_outletsdk_outlets.index'))
-                                    <a class="dropdown-item" href="{{ route('route_stocksdk_do.index') }}"><i class="far fa-circle"></i> Delivery Order</a>
-                                    @endif
-                                    @if (Route::has('route_outletsdk_outlets.index'))
-                                    <a class="dropdown-item" href="{{ route('route_stocksdk_mutation.index') }}"><i class="far fa-circle"></i> Mutation</a>
-                                    @endif
-                                </div>
-                              </li>
-                             @endif
-                            
-                             @if (Route::has('route_possdk_pos.index'))
-                              <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-list"></i> Point of Sales <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('route_possdk_pos.index') }}"><i class="far fa-circle"></i> Create Transaction</a>
-                                    <a class="dropdown-item" href="{{ route('route_possdk_report.index') }}"><i class="far fa-circle"></i> Report Transaction</a>
-                                </div>
-                              </li>
-                             @endif
-                             
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fa fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('route_coresdk_account.index') }}/setting"><i class="fas fa-cog"></i> {{ __('Account Setting') }}</a>
-                                     
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-sign-out-alt"></i> {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">{{ __('Home') }}</a>
                             </li>
+                              
                         @endguest
                     </ul>
                 </div>
