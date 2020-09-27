@@ -10,13 +10,15 @@
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>SB Admin 2 - Blank</title>
+  <title>My Application</title>
 
   <!-- Custom fonts for this template-->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <script src="{{ asset('js/admin-3.0.6.js') }}"></script>
   <link href="{{ asset('css/admin-3.0.6.css') }}" rel="stylesheet">
+  
+  <link href="{{ asset('vendor/sbadmin2/sb-admin-2.css') }}" rel="stylesheet">
   @stack('scripts')
 </head>
 
@@ -45,21 +47,21 @@
       
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
           <i class="fas fa-fw fa-list"></i>
           <span>ADMINISTRATOR</span>
         </a>
-        <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             @if (Route::has('route_outletsdk_outlets.index'))
-            <a class="collapse-item" href="{{ route('route_outletsdk_outlets.index') }}"> <i class="far fa-circle"></i> {{ __('Outlets') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/outletsdk/outlets*')) ? 'active' : '' }}" href="{{ route('route_outletsdk_outlets.index') }}"> <i class="far fa-circle"></i> {{ __('Outlets') }}</a>
             @endif
             @if (Route::has('route_productsdk_products.index'))
-            <a class="collapse-item" href="{{ route('route_productsdk_products.index') }}"><i class="far fa-circle"></i> {{ __('Product') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/productsdk/products*')) ? 'active' : '' }}" href="{{ route('route_productsdk_products.index') }}"><i class="far fa-circle"></i> {{ __('Product') }}</a>
             @endif
             @if (Route::has('route_discountsdk_discounts.index'))
-            <a class="collapse-item" href="{{ route('route_discountsdk_discounts.index') }}"><i class="far fa-circle"></i> {{ __('Discount') }}</a>
+            <a class="collapse-item  {{ (request()->is('cms/discountsdk/discounts*')) ? 'active' : '' }}" href="{{ route('route_discountsdk_discounts.index') }}"><i class="far fa-circle"></i> {{ __('Discount') }}</a>
             @endif
           </div>
         </div>
@@ -67,24 +69,24 @@
 
       <hr class="sidebar-divider my-0">
 
-      <li class="nav-item">
+      <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-fw fa-list"></i>
           <span>MONITORING</span>
         </a>
-        <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             @if (Route::has('route_monitoringsdk_stocks.index'))
-            <a class="collapse-item" href="{{ route('route_monitoringsdk_stocks.index') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_stocks.index') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
             @endif
             @if (Route::has('route_monitoringsdk_transactions.index'))
-            <a class="collapse-item" href="{{ route('route_monitoringsdk_transactions.index') }}"><i class="far fa-circle"></i> {{ __('Transaction') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/transactions*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_transactions.index') }}"><i class="far fa-circle"></i> {{ __('Transaction') }}</a>
             @endif
             @if (Route::has('route_monitoringsdk_dos.index'))
-            <a class="collapse-item" href="{{ route('route_monitoringsdk_dos.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/dos*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_dos.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
             @endif
             @if (Route::has('route_monitoringsdk_sales.index'))
-            <a class="collapse-item" href="{{ route('route_monitoringsdk_sales.index') }}"><i class="far fa-circle"></i> {{ __('Sales') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/sales*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_sales.index') }}"><i class="far fa-circle"></i> {{ __('Sales') }}</a>
             @endif
           </div>
         </div>
@@ -92,24 +94,24 @@
 
       <hr class="sidebar-divider my-0">
 
-      <li class="nav-item">
+      <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
           <i class="fas fa-fw fa-list"></i>
           <span>INVENTORY</span>
         </a>
-        <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse3" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             @if (Route::has('route_stocksdk_stocks'))
-            <a class="collapse-item" href="{{ route('route_stocksdk_stocks') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/stocksdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_stocks') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
             @endif
             @if (Route::has('route_stocksdk_posaddstock.index'))
-            <a class="collapse-item" href="{{ route('route_stocksdk_addstock.index') }}"><i class="far fa-circle"></i> {{ __('Add Stock') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/stocksdk/addstock*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_addstock.index') }}"><i class="far fa-circle"></i> {{ __('Add Stock') }}</a>
             @endif
             @if (Route::has('route_outletsdk_outlets.index'))
-            <a class="collapse-item" href="{{ route('route_stocksdk_do.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/stocksdk/do*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_do.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
             @endif
             @if (Route::has('route_outletsdk_outlets.index'))
-            <a class="collapse-item" href="{{ route('route_stocksdk_mutation.index') }}"><i class="far fa-circle"></i> {{ __('Mutation') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/stocksdk/mutation*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_mutation.index') }}"><i class="far fa-circle"></i> {{ __('Mutation') }}</a>
             @endif
           </div>
         </div>
@@ -117,15 +119,15 @@
 
       <hr class="sidebar-divider my-0">
 
-      <li class="nav-item">
+      <li class="nav-item {{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
           <i class="fas fa-fw fa-list"></i>
           <span>POINT OF SALES</span>
         </a>
-        <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse4" class="collapse {{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading4" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('route_possdk_pos.index') }}"><i class="far fa-circle"></i> {{ __('Create Transaction') }}</a>
-            <a class="collapse-item" href="{{ route('route_possdk_report.index') }}"><i class="far fa-circle"></i> {{ __('Report Transaction') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/possdk/pos*')) ? 'active' : '' }}" href="{{ route('route_possdk_pos.index') }}"><i class="far fa-circle"></i> {{ __('Create Transaction') }}</a>
+            <a class="collapse-item {{ (request()->is('cms/possdk/report*')) ? 'active' : '' }}" href="{{ route('route_possdk_report.index') }}"><i class="far fa-circle"></i> {{ __('Report Transaction') }}</a>
           </div>
         </div>
       </li>
@@ -134,7 +136,9 @@
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
-      
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
 
     </ul>
     <!-- End of Sidebar -->
@@ -244,6 +248,8 @@
     </div>
   </div>
 
+<script src="{{ asset('vendor/sbadmin2/sb-admin-2.js') }}"></script>
+<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
 </body>
 
