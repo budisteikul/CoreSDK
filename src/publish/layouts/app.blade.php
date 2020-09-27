@@ -99,6 +99,9 @@
                                     @if (Route::has('route_monitoringsdk_dos.index'))
                                     <a class="dropdown-item" href="{{ route('route_monitoringsdk_dos.index') }}"><i class="far fa-circle"></i> Delivery Order</a>
                                     @endif
+                                    @if (Route::has('route_monitoringsdk_sales.index'))
+                                    <a class="dropdown-item" href="{{ route('route_monitoringsdk_sales.index') }}"><i class="far fa-circle"></i> Sales</a>
+                                    @endif
                                 </div>
                               </li>
                               @endif
