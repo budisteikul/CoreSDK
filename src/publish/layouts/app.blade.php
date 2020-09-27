@@ -187,6 +187,12 @@
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a>
+                @if (Route::has('route_outletsdk_outlets.index'))
+                <a class="dropdown-item" href="{{ route('route_outletsdk_outlets.index') }}/selector">
+                  <i class="fas fa-building fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Outlet Selector
+                </a>
+                @endif
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
