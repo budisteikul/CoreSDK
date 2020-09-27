@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-login')
 @section('content')
 <script language="javascript">
 function AUTH_RESEND()

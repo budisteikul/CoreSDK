@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use budisteikul\coresdk\Notifications\ChangeEmailNotifications;
-use App\User;
+use budisteikul\coresdk\Models\User;
 use Carbon\Carbon;
 
 class AccountController extends Controller
