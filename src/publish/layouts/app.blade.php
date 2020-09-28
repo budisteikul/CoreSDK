@@ -29,7 +29,9 @@
     background-color:#636363;
     color:#FFFFFF;
    }
-   
+   .badge{
+    font-size:13px;
+   }
   </style>
 </head>
 
