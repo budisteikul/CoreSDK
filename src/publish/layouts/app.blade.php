@@ -20,6 +20,17 @@
   
   <link href="{{ asset('vendor/sbadmin2/sb-admin-2.css') }}" rel="stylesheet">
   @stack('scripts')
+  <style>
+   .card-header{
+    color:#FFFFFF;
+    background-color:#446bd6;
+   }
+   .table thead{
+    background-color:#636363;
+    color:#FFFFFF;
+   }
+   
+  </style>
 </head>
 
 <body id="page-top">
@@ -50,7 +61,7 @@
       <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
           <i class="fas fa-fw fa-user-shield"></i>
-          <span>ADMINISTRATOR</span>
+          <span>Administrator</span>
         </a>
         <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -72,7 +83,7 @@
       <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-fw fa-binoculars"></i>
-          <span>MONITORING</span>
+          <span>Monitoring</span>
         </a>
         <div id="collapse2" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -94,43 +105,44 @@
 
       <hr class="sidebar-divider my-0">
 
-      <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}">
+      <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}{{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
           <i class="fas fa-fw fa-boxes"></i>
-          <span>INVENTORY</span>
+          <span>
+                  @if (Route::has('route_outletsdk_outlets.index'))
+                  @inject('Outlets', budisteikul\outletsdk\Classes\OutletClass)
+                  {{ $Outlets->outletName(Session::get('outlet_id')) }}
+                  @endif
+          </span>
         </a>
-        <div id="collapse3" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
+        <div id="collapse3" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}{{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            @if (Route::has('route_stocksdk_stocks'))
-            <a class="collapse-item {{ (request()->is('cms/stocksdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_stocks') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
-            @endif
+            <h6 class="collapse-header">Inventory:</h6>
+            
             @if (Route::has('route_stocksdk_posaddstock.index'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/addstock*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_addstock.index') }}"><i class="far fa-circle"></i> {{ __('Add Stock') }}</a>
             @endif
+
+            @if (Route::has('route_stocksdk_stocks'))
+            <a class="collapse-item {{ (request()->is('cms/stocksdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_stocks') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
+            @endif
+
             @if (Route::has('route_outletsdk_outlets.index'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/do*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_do.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
             @endif
+
             @if (Route::has('route_outletsdk_outlets.index'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/mutation*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_mutation.index') }}"><i class="far fa-circle"></i> {{ __('Mutation') }}</a>
             @endif
-          </div>
-        </div>
-      </li>
 
-      <hr class="sidebar-divider my-0">
-
-      <li class="nav-item {{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-          <i class="fas fa-fw fa-shopping-cart"></i>
-          <span>POINT OF SALES</span>
-        </a>
-        <div id="collapse4" class="collapse {{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading4" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Point of Sales:</h6>
             <a class="collapse-item {{ (request()->is('cms/possdk/pos*')) ? 'active' : '' }}" href="{{ route('route_possdk_pos.index') }}"><i class="far fa-circle"></i> {{ __('Create Transaction') }}</a>
             <a class="collapse-item {{ (request()->is('cms/possdk/report*')) ? 'active' : '' }}" href="{{ route('route_possdk_report.index') }}"><i class="far fa-circle"></i> {{ __('Report Transaction') }}</a>
           </div>
         </div>
       </li>
+
+      
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -172,11 +184,11 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 text-right">
                   {{ Auth::user()->name }} 
-                  @if (Route::has('route_outletsdk_outlets.index'))
+                  
                   <br />
-                  @inject('Outlets', budisteikul\outletsdk\Classes\OutletClass)
-                  <b>{{ $Outlets->outletName(Session::get('outlet_id')) }}</b>
-                  @endif
+                  @inject('General', budisteikul\coresdk\Classes\GeneralClass)
+                  <b>{{ $General->dateFormat("",6) }}</b>
+                  
                 </span>
                
                 <i class="ml-2 fas fa-3x fa-user-circle"></i>

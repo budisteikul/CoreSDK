@@ -32,6 +32,10 @@ class GeneralClass {
         {
             return \Carbon\Carbon::parse($date)->format('d/m/Y');
         }
+        else if($type==6)
+        {
+            return \Carbon\Carbon::parse($date)->format('l, d F Y');
+        }
         else
         {
             return \Carbon\Carbon::parse($date)->format('d F Y, H:i');
