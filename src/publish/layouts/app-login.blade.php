@@ -22,7 +22,22 @@
    
     @stack('scripts')
     
-    
+    <style>
+   .card-header{
+    color:#FFFFFF;
+    background-color:#446bd6;
+   }
+   .table thead{
+    background-color:#636363;
+    color:#FFFFFF;
+   }
+   .badge{
+    font-size:13px;
+   }
+   .btn-secondary{
+    background-color:#636363;
+   }
+  </style>
 </head>
 <body>
     <div id="app">

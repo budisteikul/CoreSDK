@@ -32,6 +32,9 @@
    .badge{
     font-size:13px;
    }
+   .btn-secondary{
+    background-color:#636363;
+   }
   </style>
 </head>
 
