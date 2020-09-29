@@ -83,6 +83,8 @@
         </div>
       </li>
 
+      @if (Route::has('route_monitoringsdk_stocks.index'))
+      @if (Route::has('route_possdk_pos.index') || Route::has('route_stocksdk_stocks'))
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
@@ -93,21 +95,28 @@
         <div id="collapse2" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             @if (Route::has('route_monitoringsdk_stocks.index'))
+            @if (Route::has('route_stocksdk_stocks'))
             <a class="collapse-item {{ (request()->is('cms/monitoringsdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_stocks.index') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
             @endif
+            @endif
+            @if (Route::has('route_monitoringsdk_dos.index') && Route::has('route_outletsdk_outlets.index'))
+            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/dos*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_dos.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
+            @endif
+            @if (Route::has('route_possdk_pos.index'))
             @if (Route::has('route_monitoringsdk_transactions.index'))
             <a class="collapse-item {{ (request()->is('cms/monitoringsdk/transactions*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_transactions.index') }}"><i class="far fa-circle"></i> {{ __('Transaction') }}</a>
-            @endif
-            @if (Route::has('route_monitoringsdk_dos.index'))
-            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/dos*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_dos.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
             @endif
             @if (Route::has('route_monitoringsdk_sales.index'))
             <a class="collapse-item {{ (request()->is('cms/monitoringsdk/sales*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_sales.index') }}"><i class="far fa-circle"></i> {{ __('Sales') }}</a>
             @endif
+            @endif
           </div>
         </div>
       </li>
+      @endif
+      @endif
 
+      @if (Route::has('route_possdk_pos.index') || Route::has('route_stocksdk_stocks'))
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}{{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
@@ -117,11 +126,14 @@
                   @if (Route::has('route_outletsdk_outlets.index'))
                   @inject('Outlets', budisteikul\outletsdk\Classes\OutletClass)
                   {{ $Outlets->outletName(Session::get('outlet_id')) }}
+                  @else
+                  Store
                   @endif
           </span>
         </a>
         <div id="collapse3" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}{{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+             @if (Route::has('route_stocksdk_stocks'))
             <h6 class="collapse-header">Inventory:</h6>
             
             @if (Route::has('route_stocksdk_posaddstock.index'))
@@ -139,14 +151,17 @@
             @if (Route::has('route_outletsdk_outlets.index'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/mutation*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_mutation.index') }}"><i class="far fa-circle"></i> {{ __('Mutation') }}</a>
             @endif
+            @endif
 
+            @if (Route::has('route_possdk_pos.index'))
             <h6 class="collapse-header">Point of Sales:</h6>
             <a class="collapse-item {{ (request()->is('cms/possdk/pos*')) ? 'active' : '' }}" href="{{ route('route_possdk_pos.index') }}"><i class="far fa-circle"></i> {{ __('Create Transaction') }}</a>
             <a class="collapse-item {{ (request()->is('cms/possdk/report*')) ? 'active' : '' }}" href="{{ route('route_possdk_report.index') }}"><i class="far fa-circle"></i> {{ __('Report Transaction') }}</a>
+            @endif
           </div>
         </div>
       </li>
-
+      @endif
       
 
       <!-- Divider -->
