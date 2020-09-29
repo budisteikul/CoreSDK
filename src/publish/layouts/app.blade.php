@@ -66,7 +66,7 @@
       <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
           <i class="fas fa-fw fa-user-shield"></i>
-          <span>Administrator</span>
+          <span>ADMINISTRATOR</span>
         </a>
         <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -90,7 +90,7 @@
       <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-fw fa-binoculars"></i>
-          <span>Monitoring</span>
+          <span>MONITORING</span>
         </a>
         <div id="collapse2" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -125,7 +125,7 @@
           <span>
                   @if (Route::has('route_outletsdk_outlets.index'))
                   @inject('Outlets', budisteikul\outletsdk\Classes\OutletClass)
-                  {{ $Outlets->outletName(Session::get('outlet_id')) }}
+                  {{ strtoupper($Outlets->outletName(Session::get('outlet_id'))) }}
                   @else
                   Store
                   @endif
