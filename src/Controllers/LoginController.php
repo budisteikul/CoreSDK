@@ -68,14 +68,26 @@ class LoginController extends Controller
 
             $url = "/home";
         
-		
-
-		if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+		if(Route::has('route_usersdk_users.index'))
+        {
+			if (Auth::attempt(['email' => $email, 'password' => $password, 'status' => 1], $remember)) {
     		return response()->json([
     			'id' => '1',
     			'message' => $url
 			]);
+			}
 		}
+		else
+		{
+			if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+    		return response()->json([
+    			'id' => '1',
+    			'message' => $url
+			]);
+			}
+		}
+
+		
 		
 		return response()->json([
     		'email' => "These credentials do not match our records."
