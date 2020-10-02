@@ -10,7 +10,8 @@
     "require": {
     	"laravel/ui": "^2.1",
         "yajra/laravel-datatables-buttons": "^4.9",
-        "yajra/laravel-datatables-oracle": "^9.9"
+        "yajra/laravel-datatables-oracle": "^9.9",
+        "intervention/image": "^2.5"
     },
     "autoload": {
    		"psr-4": {
