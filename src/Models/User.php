@@ -22,4 +22,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+	
+	public function User_details()
+    {
+        return $this->hasManyOne('budisteikul\usersdk\Models\User_details','user_id');
+    }
 }
