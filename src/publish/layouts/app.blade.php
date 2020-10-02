@@ -68,11 +68,8 @@
           <i class="fas fa-fw fa-user-shield"></i>
           <span>ADMINISTRATOR</span>
         </a>
-        <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}{{ (request()->is('cms/usersdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            @if (Route::has('route_usersdk_users.index'))
-            <a class="collapse-item  {{ (request()->is('cms/usersdk/users*')) ? 'active' : '' }}" href="{{ route('route_usersdk_users.index') }}"><i class="far fa-circle"></i> {{ __('Users') }}</a>
-            @endif
             @if (Route::has('route_outletsdk_outlets.index'))
             <a class="collapse-item {{ (request()->is('cms/outletsdk/outlets*')) ? 'active' : '' }}" href="{{ route('route_outletsdk_outlets.index') }}"> <i class="far fa-circle"></i> {{ __('Outlets') }}</a>
             @endif
@@ -298,7 +295,6 @@
   </div>
 
 <script src="{{ asset('vendor/sbadmin2/sb-admin-2.js') }}"></script>
-<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
 </body>
 
