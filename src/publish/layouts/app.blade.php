@@ -63,12 +63,13 @@
       
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
+
+      <li class="nav-item {{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/usersdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
           <i class="fas fa-fw fa-user-shield"></i>
           <span>ADMINISTRATOR</span>
         </a>
-        <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}{{ (request()->is('cms/usersdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse1" class="collapse {{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/usersdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             @if (Route::has('route_usersdk_users.index'))
             <a class="collapse-item {{ (request()->is('cms/usersdk/users*')) ? 'active' : '' }}" href="{{ route('route_usersdk_users.index') }}"> <i class="far fa-circle"></i> {{ __('Users') }}</a>
@@ -76,6 +77,19 @@
             @if (Route::has('route_outletsdk_outlets.index'))
             <a class="collapse-item {{ (request()->is('cms/outletsdk/outlets*')) ? 'active' : '' }}" href="{{ route('route_outletsdk_outlets.index') }}"> <i class="far fa-circle"></i> {{ __('Outlets') }}</a>
             @endif
+          </div>
+        </div>
+      </li>
+
+
+      <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+          <i class="fas fa-tag"></i>
+          <span>LIBRARY</span>
+        </a>
+        <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+           
             @if (Route::has('route_productsdk_products.index'))
             <a class="collapse-item {{ (request()->is('cms/productsdk/products*')) ? 'active' : '' }}" href="{{ route('route_productsdk_products.index') }}"><i class="far fa-circle"></i> {{ __('Product') }}</a>
             @endif
