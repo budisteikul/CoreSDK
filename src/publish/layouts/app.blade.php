@@ -83,11 +83,11 @@
 
 
       <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-tag"></i>
           <span>LIBRARY</span>
         </a>
-        <div id="collapse1" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
             @if (Route::has('route_productsdk_products.index'))
@@ -105,11 +105,11 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
           <i class="fas fa-fw fa-binoculars"></i>
           <span>MONITORING</span>
         </a>
-        <div id="collapse2" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
+        <div id="collapse3" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             @if (Route::has('route_monitoringsdk_stocks.index'))
             @if (Route::has('route_stocksdk_stocks'))
@@ -137,7 +137,7 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}{{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
           <i class="fas fa-fw fa-boxes"></i>
           <span>
                   @if (Route::has('route_outletsdk_outlets.index'))
@@ -148,7 +148,7 @@
                   @endif
           </span>
         </a>
-        <div id="collapse3" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}{{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
+        <div id="collapse4" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}{{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
              @if (Route::has('route_stocksdk_stocks'))
             <h6 class="collapse-header">Inventory:</h6>
@@ -272,7 +272,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; My Application 2020</span>
           </div>
         </div>
       </footer>
