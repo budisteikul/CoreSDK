@@ -19,7 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/admin-3.0.6.css') }}" rel="stylesheet">
-   
+    <link href="{{ asset('vendor/sbadmin2/sb-admin-2.css') }}" rel="stylesheet">
+
     @stack('scripts')
     
     <style>
