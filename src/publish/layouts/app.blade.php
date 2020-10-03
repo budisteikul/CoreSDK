@@ -12,7 +12,6 @@
 
   <title>My Application</title>
 
-  <!-- Custom fonts for this template-->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <script src="{{ asset('js/admin-3.0.6.js') }}"></script>
@@ -40,13 +39,13 @@
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
+
   <div id="wrapper">
 
-    <!-- Sidebar -->
+
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <!-- Sidebar - Brand -->
+
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-rocket"></i>
@@ -54,16 +53,12 @@
         <div class="sidebar-brand-text mx-3">MENU</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-     
-      <!-- Heading -->
+
       
 
-      <!-- Nav Item - Pages Collapse Menu -->
-
+      <!-- ##################################################################### -->
+      <hr class="sidebar-divider my-0">
       <li class="nav-item {{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/usersdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
           <i class="fas fa-fw fa-user-shield"></i>
@@ -80,8 +75,8 @@
           </div>
         </div>
       </li>
-
-
+      <!-- ##################################################################### -->
+      <hr class="sidebar-divider my-0">
       <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-tag"></i>
@@ -99,11 +94,10 @@
           </div>
         </div>
       </li>
-
+      <!-- ##################################################################### -->
       @if (Route::has('route_monitoringsdk_stocks.index'))
       @if (Route::has('route_possdk_pos.index') || Route::has('route_stocksdk_stocks'))
       <hr class="sidebar-divider my-0">
-
       <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
           <i class="fas fa-fw fa-binoculars"></i>
@@ -132,10 +126,9 @@
       </li>
       @endif
       @endif
-
+      <!-- ##################################################################### -->
       @if (Route::has('route_possdk_pos.index') || Route::has('route_stocksdk_stocks'))
       <hr class="sidebar-divider my-0">
-
       <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}{{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
           <i class="fas fa-fw fa-boxes"></i>
@@ -152,24 +145,19 @@
           <div class="bg-white py-2 collapse-inner rounded">
              @if (Route::has('route_stocksdk_stocks'))
             <h6 class="collapse-header">Inventory:</h6>
-            
             @if (Route::has('route_stocksdk_posaddstock.index'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/addstock*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_addstock.index') }}"><i class="far fa-circle"></i> {{ __('Add Stock') }}</a>
             @endif
-
             @if (Route::has('route_stocksdk_stocks'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_stocks') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
             @endif
-
             @if (Route::has('route_outletsdk_outlets.index'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/do*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_do.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
             @endif
-
             @if (Route::has('route_outletsdk_outlets.index'))
             <a class="collapse-item {{ (request()->is('cms/stocksdk/mutation*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_mutation.index') }}"><i class="far fa-circle"></i> {{ __('Mutation') }}</a>
             @endif
             @endif
-
             @if (Route::has('route_possdk_pos.index'))
             <h6 class="collapse-header">Point of Sales:</h6>
             <a class="collapse-item {{ (request()->is('cms/possdk/pos*')) ? 'active' : '' }}" href="{{ route('route_possdk_pos.index') }}"><i class="far fa-circle"></i> {{ __('Create Transaction') }}</a>
@@ -179,55 +167,35 @@
         </div>
       </li>
       @endif
-      
-
-      <!-- Divider -->
+      <!-- ##################################################################### -->
       <hr class="sidebar-divider d-none d-md-block">
 
-      <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
 
     </ul>
-    <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
+    <!-- ##################################################################### -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
       <div id="content">
 
-        <!-- Topbar -->
+      	<!-- ##################################################################### -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
-          
-
-          <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-            
-
-            
-
             <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 text-right">
                   {{ Auth::user()->name }} 
-                  
                   <br />
                   @inject('General', budisteikul\coresdk\Classes\GeneralClass)
                   <b>{{ $General->dateFormat("",6) }}</b>
-                  
                 </span>
-               
                 <i class="ml-2 fas fa-3x fa-user-circle"></i>
               </a>
               <!-- Dropdown - User Information -->
@@ -249,26 +217,20 @@
                 </a>
               </div>
             </li>
-
           </ul>
-
         </nav>
-        <!-- End of Topbar -->
+        <!-- ##################################################################### -->
 
-        <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
          
           @yield('content')
 
         </div>
-        <!-- /.container-fluid -->
+        
 
       </div>
-      <!-- End of Main Content -->
 
-      <!-- Footer -->
+     
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -276,20 +238,17 @@
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
+     
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- ##################################################################### -->
 
   </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
+  
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -310,9 +269,6 @@
       </div>
     </div>
   </div>
-
 <script src="{{ asset('vendor/sbadmin2/sb-admin-2.js') }}"></script>
-
 </body>
-
 </html>
