@@ -14,8 +14,8 @@
 
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <script src="{{ asset('js/admin-3.0.6.js') }}"></script>
-  <link href="{{ asset('css/admin-3.0.6.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/admin-3.0.7.js') }}"></script>
+  <link href="{{ asset('css/admin-3.0.7.css') }}" rel="stylesheet">
   
   <link href="{{ asset('vendor/sbadmin2/sb-admin-2.css') }}" rel="stylesheet">
   @stack('scripts')
@@ -77,14 +77,16 @@
       </li>
       <!-- ##################################################################### -->
       <hr class="sidebar-divider my-0">
-      <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}">
+      <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}{{ (request()->is('cms/categorysdk*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-tag"></i>
           <span>LIBRARY</span>
         </a>
-        <div id="collapse2" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}{{ (request()->is('cms/categorysdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-           
+            @if (Route::has('route_categorysdk_categories.index'))
+            <a class="collapse-item {{ (request()->is('cms/categorysdk/categories*')) ? 'active' : '' }}" href="{{ route('route_categorysdk_categories.index') }}"><i class="far fa-circle"></i> {{ __('Category') }}</a>
+            @endif
             @if (Route::has('route_productsdk_products.index'))
             <a class="collapse-item {{ (request()->is('cms/productsdk/products*')) ? 'active' : '' }}" href="{{ route('route_productsdk_products.index') }}"><i class="far fa-circle"></i> {{ __('Product') }}</a>
             @endif
