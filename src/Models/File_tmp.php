@@ -8,4 +8,5 @@ class File_tmp extends Model
 {
     protected $table = 'file_tmp';
 	protected $keyType = 'string';
+	protected $dateFormat = 'Y-m-d H:i:s.u';
 }

@@ -23,7 +23,7 @@ class CreateFileTmpTable extends Migration
             $table->string('file')->nullable();
             $table->string('key')->nullable();
 
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

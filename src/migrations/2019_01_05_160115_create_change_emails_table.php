@@ -17,7 +17,7 @@ class CreateChangeEmailsTable extends Migration
             $table->integer('id')->index()->unsigned();
 			$table->string('email');
 			$table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps(6);
         });
     }
 
