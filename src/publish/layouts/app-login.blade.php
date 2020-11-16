@@ -10,7 +10,7 @@
     <title>{{ str_ireplace("www.","",$_SERVER['HTTP_HOST']) }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/admin-3.0.6.js') }}"></script>
+    <script src="{{ asset('js/admin-3.0.7.js') }}"></script>
     
 
     <!-- Fonts -->
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/admin-3.0.6.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-3.0.7.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/sbadmin2/sb-admin-2.css') }}" rel="stylesheet">
 
     @stack('scripts')
