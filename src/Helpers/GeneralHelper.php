@@ -1,7 +1,7 @@
 <?php
 namespace budisteikul\coresdk\Helpers;
 
-class General {
+class GeneralHelper {
 	
     public static function digitFormat($number,$digit)
     {

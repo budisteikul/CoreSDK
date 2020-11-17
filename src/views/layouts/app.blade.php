@@ -1,4 +1,4 @@
-@inject('General', budisteikul\coresdk\Helpers\General)
+@inject('General', budisteikul\coresdk\Helpers\GeneralHelper)
 <!DOCTYPE html>
 <html lang="en">
 

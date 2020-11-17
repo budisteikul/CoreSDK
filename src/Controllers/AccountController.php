@@ -36,9 +36,9 @@ class AccountController extends Controller
         {
             $id =  $request->input('id');
             $token =  $request->input('token');
-			$result = ChangeEmail::where('user_id',$id)->where('token',$token)->first();
+			$changeEmail = ChangeEmail::where('user_id',$id)->where('token',$token)->first();
 			
-            if(!@count($result))
+            if(!@count($changeEmail))
             {
                     $message = '<div class="alert alert-danger">
         <h4><i class="icon fa fa-ban"></i> Error!</h4>
@@ -47,7 +47,7 @@ class AccountController extends Controller
                     return view("coresdk::change_email")->with('message',$message);
             }
 
-            if(Carbon::parse($result->created_at)->addMinutes(60) <= Carbon::now())
+            if(Carbon::parse($changeEmail->created_at)->addMinutes(60) <= Carbon::now())
              {
                  
                     $message = '<div class="alert alert-warning">
@@ -57,11 +57,11 @@ class AccountController extends Controller
                     return view("coresdk::change_email")->with('message',$message); 
              }
 			 
-			 $result->User->email = $result->email;
-			 $result->User->email_verified_at = Carbon::now();
-			 $result->User->save();
+			 $changeEmail->User->email = $changeEmail->email;
+			 $changeEmail->User->email_verified_at = Carbon::now();
+			 $changeEmail->User->save();
 			 
-             $result->delete();
+             $changeEmail->delete();
              
              $message = '<div class="alert alert-success">
                             <h4><i class="icon fa fa-check"></i> Success!</h4>
@@ -172,7 +172,7 @@ class AccountController extends Controller
 			if (Auth::validate($credentials)) {
 				
 				$token = Str::random(60);
-				$ChangeEmail = ChangeEmail::updateOrCreate(
+				$changeEmail = ChangeEmail::updateOrCreate(
 					['user_id'=>$user->id],
 					['email'=>$new_email,'token'=>$token]
 				);
