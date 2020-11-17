@@ -1,4 +1,4 @@
-@extends('layouts.app-login')
+@extends('coresdk::layouts.app-login')
 @section('content')
 <script language="javascript">
 function AUTH_RESET()

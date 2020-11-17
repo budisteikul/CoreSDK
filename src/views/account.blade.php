@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('coresdk::layouts.app')
 @section('content')
 @push('scripts')
 <script language="javascript">
@@ -157,7 +157,7 @@ function UPDATE_PASSWORD()
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Account</div>
+                <div class="card-header"><i class="fas fa-user"></i> Account</div>
 
                 <div class="card-body">
                     

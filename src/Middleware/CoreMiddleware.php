@@ -27,8 +27,6 @@ class CoreMiddleware
             return redirect(route('verification.notice'));
         }
 
-        //print(\Request::url());
-        
         if(Route::has('route_outletsdk_outlets.index'))
         {
             $outlet_url = str_ireplace($request->getSchemeAndHttpHost()."/","",route('route_outletsdk_outlets.index')) ."*";

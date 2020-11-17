@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('coresdk::layouts.app')
 @section('content')
 
 

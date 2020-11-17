@@ -16,7 +16,7 @@
 	Route::get('/home','budisteikul\coresdk\Controllers\HomeController@index')->middleware(['web','auth','verified','CoreMiddleware']);
 	Route::get('/cms/coresdk/account/setting','budisteikul\coresdk\Controllers\AccountController@setting')->middleware(['web','auth','verified','CoreMiddleware']);
 	Route::resource('/cms/coresdk/account','budisteikul\coresdk\Controllers\AccountController',[ 'names' => 'route_coresdk_account' ])->middleware(['web','auth','verified','CoreMiddleware']);
-	Route::resource('/cms/coresdk/file','budisteikul\coresdk\Controllers\FileController',[ 'names' => 'route_coresdk_file' ])->middleware(['web','auth','verified','CoreMiddleware']);
+	Route::resource('/cms/coresdk/filetemp','budisteikul\coresdk\Controllers\FileTempController',[ 'names' => 'route_coresdk_filetemp' ])->middleware(['web','auth','verified','CoreMiddleware']);
 
 
 

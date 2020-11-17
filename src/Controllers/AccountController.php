@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use budisteikul\coresdk\Notifications\ChangeEmailNotifications;
 use budisteikul\coresdk\Models\User;
+use budisteikul\coresdk\Models\ChangeEmail;
 use Carbon\Carbon;
 
 class AccountController extends Controller
@@ -36,8 +36,8 @@ class AccountController extends Controller
         {
             $id =  $request->input('id');
             $token =  $request->input('token');
-            $result = DB::table('change_emails')->where('id',$id)->where('token',$token)->first();
-
+			$result = ChangeEmail::where('user_id',$id)->where('token',$token)->first();
+			
             if(!@count($result))
             {
                     $message = '<div class="alert alert-danger">
@@ -56,17 +56,18 @@ class AccountController extends Controller
         </div>';
                     return view("coresdk::change_email")->with('message',$message); 
              }
-
-             $user = User::findOrFail($result->id);
-             $user->email = $result->email;
-             $user->email_verified_at = Carbon::now();
-             $user->save();
-             DB::table('change_emails')->where('id',$result->id)->delete();
+			 
+			 $result->User->email = $result->email;
+			 $result->User->email_verified_at = Carbon::now();
+			 $result->User->save();
+			 
+             $result->delete();
              
              $message = '<div class="alert alert-success">
                             <h4><i class="icon fa fa-check"></i> Success!</h4>
                                 Successfully to change email address,<br /> click <a href="/home">here to continue</a>
                             </div>';
+							
              return view("coresdk::change_email")->with('message',$message);
         }
     }
@@ -152,8 +153,8 @@ class AccountController extends Controller
         if($action=="email")
         {
             $validator = Validator::make($request->all(), [
-                'new_email' => 'required|email',
                 'password' => 'required',
+				'new_email' => 'required|email|unique:users,email',
             ]);
         
             if ($validator->fails()) {
@@ -165,24 +166,20 @@ class AccountController extends Controller
             $password =  $request->input('password');
 
             $user = User::findOrFail($user->id);
-
-            $check = User::where('email',$new_email)->first();
-            if(@count($check)) return response()->json([
-                    'new_email' => 'The email has already been taken.'
-                ]);
-
+			
             $credentials = ['email' => $user->email, 'password' => $password];
-            if (Auth::validate($credentials)) {
-                DB::table('change_emails')->where('id',$user->id)->delete();
-                $token = Str::random(60);
-                DB::table('change_emails')->insert([
-                    'id' => $user->id,
-                    'email' => $new_email,
-                    'token' => $token,
-                    'created_at' => date('Y-m-d H:i:s')
-               ]);
-               $user->notify(new ChangeEmailNotifications($token,$new_email,$user->id));
-               return response()->json([
+            
+			if (Auth::validate($credentials)) {
+				
+				$token = Str::random(60);
+				$ChangeEmail = ChangeEmail::updateOrCreate(
+					['user_id'=>$user->id],
+					['email'=>$new_email,'token'=>$token]
+				);
+				
+                $user->notify(new ChangeEmailNotifications($token,$new_email,$user->id));
+			   
+                return response()->json([
                     "id" => "1",
                     "message" => 'Link verification for new email address has been sent to your new email address']);
             }

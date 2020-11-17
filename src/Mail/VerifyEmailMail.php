@@ -46,8 +46,8 @@ class VerifyEmailMail extends Mailable
     public function build()
     {
 		
-        return $this->view('layouts.mail.verify-email')
-                    ->text('layouts.mail.verify-email_plain')
+        return $this->view('coresdk::layouts.mail.verify-email')
+                    ->text('coresdk::layouts.mail.verify-email_plain')
 				    ->to($this->user->email)
 				    ->subject('Verify your email address')
 				    ->with('action_url',$this->action_url);

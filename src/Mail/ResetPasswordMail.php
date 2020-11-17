@@ -33,8 +33,8 @@ class ResetPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->view('layouts.mail.reset-password')
-                    ->text('layouts.mail.reset-password_plain')
+        return $this->view('coresdk::layouts.mail.reset-password')
+                    ->text('coresdk::layouts.mail.reset-password_plain')
 				    ->to($this->user->email)
 				    ->subject('Reset Password Notification')
 				    ->with('action_url',$this->action_url)

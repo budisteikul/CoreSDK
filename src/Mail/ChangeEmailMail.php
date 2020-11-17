@@ -34,8 +34,8 @@ class ChangeEmailMail extends Mailable
     public function build()
     {
 		
-        return $this->view('layouts.mail.change-email')
-                    ->text('layouts.mail.change-email_plain')
+        return $this->view('coresdk::layouts.mail.change-email')
+                    ->text('coresdk::layouts.mail.change-email_plain')
 				    ->to($this->new_email)
 				    ->subject('Change Email Confirmation')
 				    ->with('action_url',$this->action_url)
