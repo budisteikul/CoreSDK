@@ -18,8 +18,8 @@ class FileTempController extends Controller
         foreach($fileTemps as $fileTemp)
         {
             Storage::disk('local')->delete($fileTemp->file);
+			$fileTemp->delete();
         }
-        $fileTemps->delete();
     }
 	
     /**
@@ -110,7 +110,7 @@ class FileTempController extends Controller
     public function destroy(FileTemp $fileTemp)
     {
         $fileTemp = File_tmp::find($id);
-        Storage::disk('local')->delete($file_tmp->file);
+        Storage::disk('local')->delete($fileTemp->file);
         $fileTemp->delete();
     }
 }

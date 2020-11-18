@@ -87,17 +87,19 @@
           <i class="fas fa-tag"></i>
           <span>LIBRARY</span>
         </a>
-        <div id="collapse2" class="collapse {{ (request()->is('cms/productsdk*')) ? 'show' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'show' : '' }}{{ (request()->is('cms/categorysdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse 
+        
+        {{ (request()->is('cms/toursdk/product*')) ? 'show' : '' }}
+        {{ (request()->is('cms/toursdk/category*')) ? 'show' : '' }}
+        
+        " aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            @if (Route::has('route_categorysdk_categories.index'))
-            <a class="collapse-item {{ (request()->is('cms/categorysdk/categories*')) ? 'active' : '' }}" href="{{ route('route_categorysdk_categories.index') }}"><i class="far fa-circle"></i> {{ __('Category') }}</a>
-            @endif
-            @if (Route::has('route_productsdk_products.index'))
-            <a class="collapse-item {{ (request()->is('cms/productsdk/products*')) ? 'active' : '' }}" href="{{ route('route_productsdk_products.index') }}"><i class="far fa-circle"></i> {{ __('Product') }}</a>
-            @endif
-            @if (Route::has('route_discountsdk_discounts.index'))
-            <a class="collapse-item  {{ (request()->is('cms/discountsdk/discounts*')) ? 'active' : '' }}" href="{{ route('route_discountsdk_discounts.index') }}"><i class="far fa-circle"></i> {{ __('Discount') }}</a>
-            @endif
+            
+            <a class="collapse-item {{ (request()->is('cms/toursdk/product*')) ? 'active' : '' }}" href="{{ route('route_toursdk_product.index') }}"><i class="far fa-circle"></i> {{ __('Product') }}</a>
+            
+            <a class="collapse-item {{ (request()->is('cms/toursdk/category*')) ? 'active' : '' }}" href="{{ route('route_toursdk_category.index') }}"><i class="far fa-circle"></i> {{ __('Category') }}</a>
+            
+           
           </div>
         </div>
       </li>
