@@ -3,12 +3,12 @@
 namespace budisteikul\coresdk\Controllers;
 use App\Http\Controllers\Controller;
 
-use budisteikul\coresdk\Models\FileTemp;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+
+use budisteikul\coresdk\Models\FileTemp;
 
 class FileTempController extends Controller
 {
@@ -109,7 +109,6 @@ class FileTempController extends Controller
      */
     public function destroy(FileTemp $fileTemp)
     {
-        $fileTemp = File_tmp::find($id);
         Storage::disk('local')->delete($fileTemp->file);
         $fileTemp->delete();
     }
