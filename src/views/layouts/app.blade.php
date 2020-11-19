@@ -63,26 +63,16 @@
       
 
       <!-- ##################################################################### -->
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item {{ (request()->is('cms/outletsdk*')) ? 'active' : '' }}{{ (request()->is('cms/usersdk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-          <i class="fas fa-fw fa-user-shield"></i>
-          <span>ADMINISTRATOR</span>
-        </a>
-        <div id="collapse1" class="collapse {{ (request()->is('cms/outletsdk*')) ? 'show' : '' }}{{ (request()->is('cms/usersdk*')) ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            @if (Route::has('route_usersdk_users.index'))
-            <a class="collapse-item {{ (request()->is('cms/usersdk/users*')) ? 'active' : '' }}" href="{{ route('route_usersdk_users.index') }}"> <i class="far fa-circle"></i> {{ __('Users') }}</a>
-            @endif
-            @if (Route::has('route_outletsdk_outlets.index'))
-            <a class="collapse-item {{ (request()->is('cms/outletsdk/outlets*')) ? 'active' : '' }}" href="{{ route('route_outletsdk_outlets.index') }}"> <i class="far fa-circle"></i> {{ __('Outlets') }}</a>
-            @endif
-          </div>
-        </div>
-      </li>
+      
       <!-- ##################################################################### -->
       <hr class="sidebar-divider my-0">
-      <li class="nav-item {{ (request()->is('cms/productsdk*')) ? 'active' : '' }}{{ (request()->is('cms/discountsdk*')) ? 'active' : '' }}{{ (request()->is('cms/categorysdk*')) ? 'active' : '' }}">
+      <li class="nav-item 
+      
+        {{ (request()->is('cms/toursdk/product*')) ? 'active' : '' }}
+        {{ (request()->is('cms/toursdk/category*')) ? 'active' : '' }}
+        {{ (request()->is('cms/toursdk/channel*')) ? 'active' : '' }}
+      
+      ">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-tag"></i>
           <span>LIBRARY</span>
@@ -91,6 +81,7 @@
         
         {{ (request()->is('cms/toursdk/product*')) ? 'show' : '' }}
         {{ (request()->is('cms/toursdk/category*')) ? 'show' : '' }}
+        {{ (request()->is('cms/toursdk/channel*')) ? 'show' : '' }}
         
         " aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -99,83 +90,14 @@
             
             <a class="collapse-item {{ (request()->is('cms/toursdk/category*')) ? 'active' : '' }}" href="{{ route('route_toursdk_category.index') }}"><i class="far fa-circle"></i> {{ __('Category') }}</a>
             
+            <a class="collapse-item {{ (request()->is('cms/toursdk/channel*')) ? 'active' : '' }}" href="{{ route('route_toursdk_channel.index') }}"><i class="far fa-circle"></i> {{ __('Channel') }}</a>
+            
            
           </div>
         </div>
       </li>
       <!-- ##################################################################### -->
-      @if (Route::has('route_monitoringsdk_stocks.index'))
-      @if (Route::has('route_possdk_pos.index') || Route::has('route_stocksdk_stocks'))
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item {{ (request()->is('cms/monitoringsdk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-          <i class="fas fa-fw fa-binoculars"></i>
-          <span>MONITORING</span>
-        </a>
-        <div id="collapse3" class="collapse {{ (request()->is('cms/monitoringsdk*')) ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            @if (Route::has('route_monitoringsdk_stocks.index'))
-            @if (Route::has('route_stocksdk_stocks'))
-            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_stocks.index') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
-            @endif
-            @endif
-            @if (Route::has('route_monitoringsdk_dos.index') && Route::has('route_outletsdk_outlets.index'))
-            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/dos*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_dos.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
-            @endif
-            @if (Route::has('route_possdk_pos.index'))
-            @if (Route::has('route_monitoringsdk_transactions.index'))
-            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/transactions*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_transactions.index') }}"><i class="far fa-circle"></i> {{ __('Transaction') }}</a>
-            @endif
-            @if (Route::has('route_monitoringsdk_sales.index'))
-            <a class="collapse-item {{ (request()->is('cms/monitoringsdk/sales*')) ? 'active' : '' }}" href="{{ route('route_monitoringsdk_sales.index') }}"><i class="far fa-circle"></i> {{ __('Sales') }}</a>
-            @endif
-            @endif
-          </div>
-        </div>
-      </li>
-      @endif
-      @endif
-      <!-- ##################################################################### -->
-      @if (Route::has('route_possdk_pos.index') || Route::has('route_stocksdk_stocks'))
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item {{ (request()->is('cms/stocksdk*')) ? 'active' : '' }}{{ (request()->is('cms/possdk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-          <i class="fas fa-fw fa-boxes"></i>
-          <span>
-                  @if (Route::has('route_outletsdk_outlets.index'))
-                  @inject('Outlets', budisteikul\outletsdk\Classes\OutletClass)
-                  {{ strtoupper($Outlets->outletName(Session::get('outlet_id'))) }}
-                  @else
-                  Store
-                  @endif
-          </span>
-        </a>
-        <div id="collapse4" class="collapse {{ (request()->is('cms/stocksdk*')) ? 'show' : '' }}{{ (request()->is('cms/possdk*')) ? 'show' : '' }}" aria-labelledby="heading3" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-             @if (Route::has('route_stocksdk_stocks'))
-            <h6 class="collapse-header">Inventory:</h6>
-            @if (Route::has('route_stocksdk_posaddstock.index'))
-            <a class="collapse-item {{ (request()->is('cms/stocksdk/addstock*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_addstock.index') }}"><i class="far fa-circle"></i> {{ __('Add Stock') }}</a>
-            @endif
-            @if (Route::has('route_stocksdk_stocks'))
-            <a class="collapse-item {{ (request()->is('cms/stocksdk/stocks*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_stocks') }}"><i class="far fa-circle"></i> {{ __('Stocks') }}</a>
-            @endif
-            @if (Route::has('route_outletsdk_outlets.index'))
-            <a class="collapse-item {{ (request()->is('cms/stocksdk/do*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_do.index') }}"><i class="far fa-circle"></i> {{ __('Delivery Order') }}</a>
-            @endif
-            @if (Route::has('route_outletsdk_outlets.index'))
-            <a class="collapse-item {{ (request()->is('cms/stocksdk/mutation*')) ? 'active' : '' }}" href="{{ route('route_stocksdk_mutation.index') }}"><i class="far fa-circle"></i> {{ __('Mutation') }}</a>
-            @endif
-            @endif
-            @if (Route::has('route_possdk_pos.index'))
-            <h6 class="collapse-header">Point of Sales:</h6>
-            <a class="collapse-item {{ (request()->is('cms/possdk/pos*')) ? 'active' : '' }}" href="{{ route('route_possdk_pos.index') }}"><i class="far fa-circle"></i> {{ __('Create Transaction') }}</a>
-            <a class="collapse-item {{ (request()->is('cms/possdk/report*')) ? 'active' : '' }}" href="{{ route('route_possdk_report.index') }}"><i class="far fa-circle"></i> {{ __('Report Transaction') }}</a>
-            @endif
-          </div>
-        </div>
-      </li>
-      @endif
+      
       <!-- ##################################################################### -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -212,12 +134,7 @@
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a>
-                @if (Route::has('route_outletsdk_outlets.index'))
-                <a class="dropdown-item" href="{{ route('route_outletsdk_outlets.index') }}/selector">
-                  <i class="fas fa-building fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Outlet Selector
-                </a>
-                @endif
+                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
