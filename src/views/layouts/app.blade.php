@@ -21,7 +21,7 @@
   <link href="{{ asset('vendor/sbadmin2/sb-admin-2.css') }}" rel="stylesheet">
   @stack('scripts')
   
-  <style>
+<style>
    body{
 	color:#000000;
    }
@@ -39,8 +39,96 @@
    .btn-secondary{
     background-color:#636363;
    }
-  </style>
-  <style>
+</style>
+<style>
+h4{
+  margin-top:8px;
+}
+.calendar
+{
+  font-size:13px;
+}
+.rates-container
+{
+  margin-bottom:10px; 
+}
+.start-times-container
+{
+  margin-bottom:10px; 
+}
+.time
+{
+  margin-left:10px;
+  
+}
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+a.label:hover,
+a.label:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.label:empty {
+  display: none;
+}
+.btn .label {
+  position: relative;
+  top: -1px;
+}
+.label-default {
+  background-color: #777;
+}
+.label-default[href]:hover,
+.label-default[href]:focus {
+  background-color: #5e5e5e;
+}
+.label-primary {
+  background-color: #337ab7;
+}
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+  background-color: #286090;
+}
+.label-success {
+  background-color: #5cb85c;
+}
+.label-success[href]:hover,
+.label-success[href]:focus {
+  background-color: #449d44;
+}
+.label-info {
+  background-color: #5bc0de;
+}
+.label-info[href]:hover,
+.label-info[href]:focus {
+  background-color: #31b0d5;
+}
+.label-warning {
+  background-color: #f0ad4e;
+}
+.label-warning[href]:hover,
+.label-warning[href]:focus {
+  background-color: #ec971f;
+}
+.label-danger {
+  background-color: #d9534f;
+}
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c;
+}
+
 .container-fluid.widget.activity-time-selector {
   padding: 0px;
 }
@@ -452,7 +540,29 @@ html.rtl .activity-time-selector .radio-label span.time {
         </div>
       </li>
       <!-- ##################################################################### -->
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item 
       
+        {{ (request()->is('cms/toursdk/booking*')) ? 'active' : '' }}
+      
+      ">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+          <i class="fas fa-shopping-cart"></i>
+          <span>ORDER</span>
+        </a>
+        <div id="collapse2" class="collapse 
+        
+        {{ (request()->is('cms/toursdk/booking*')) ? 'show' : '' }}
+        
+        " aria-labelledby="heading1" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            
+            <a class="collapse-item {{ (request()->is('cms/toursdk/product*')) ? 'active' : '' }}" href="{{ route('route_toursdk_booking.index') }}"><i class="far fa-circle"></i> {{ __('Booking') }}</a>
+            
+           
+          </div>
+        </div>
+      </li>
       <!-- ##################################################################### -->
       <hr class="sidebar-divider d-none d-md-block">
 
