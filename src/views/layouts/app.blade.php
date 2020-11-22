@@ -516,11 +516,11 @@ html.rtl .activity-time-selector .radio-label span.time {
         {{ (request()->is('cms/toursdk/channel*')) ? 'active' : '' }}
       
       ">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
           <i class="fas fa-tag"></i>
           <span>LIBRARY</span>
         </a>
-        <div id="collapse2" class="collapse 
+        <div id="collapse1" class="collapse 
         
         {{ (request()->is('cms/toursdk/product*')) ? 'show' : '' }}
         {{ (request()->is('cms/toursdk/category*')) ? 'show' : '' }}

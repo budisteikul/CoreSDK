@@ -26,24 +26,6 @@ class CoreMiddleware
         {
             return redirect(route('verification.notice'));
         }
-
-        if(Route::has('route_outletsdk_outlets.index'))
-        {
-            $outlet_url = str_ireplace($request->getSchemeAndHttpHost()."/","",route('route_outletsdk_outlets.index')) ."*";
-            if(!\Request::is($outlet_url))
-            {
-                Session::put('previous_url',URL::full());
-                if(!Session::has('outlet_id'))
-                {
-                    return redirect(route('route_outletsdk_outlets.index') .'/selector');
-                }
-                else
-                {
-                    $outlets = Outlets::where('status',1)->find(Session::get('outlet_id'));
-                    if(!@count($outlets)) return redirect(route('route_outletsdk_outlets.index') .'/selector');
-                }
-            }
-        }
         
         return $next($request);
     }
