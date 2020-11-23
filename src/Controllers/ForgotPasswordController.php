@@ -3,11 +3,12 @@
 namespace budisteikul\coresdk\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use budisteikul\coresdk\Models\User;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
+use budisteikul\coresdk\Notifications\ResetPasswordNotification;
 
 class ForgotPasswordController extends Controller
 {
@@ -50,17 +51,24 @@ class ForgotPasswordController extends Controller
 			return response()->json($errors);
        	}
 		
-		$check = User::where('email',$request->input('email'))->first();
-		if(!@count($check))
+		$user = User::where('email',$request->input('email'))->first();
+		if(!@count($user))
 		{
 			return response()->json([
-    		'email' => "We can't find a user with that e-mail address."
-		]);
+    		      'email' => "We can't find a user with that e-mail address."
+		      ]);
 		}
 		
+        $token = $this->broker()->createToken($user);
+
+        $user->notify(new ResetPasswordNotification($token,$user));
+
+        /*
 		$response = $this->broker()->sendResetLink(
             $request->only('email')
         );
+        */
+
 		return response()->json([
     		'id' => '1',
     		'message' => 'We have e-mailed your password reset link!'

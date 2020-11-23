@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
-use budisteikul\coresdk\Notifications\ChangeEmailNotifications;
+use budisteikul\coresdk\Notifications\ChangeEmailNotification;
 use budisteikul\coresdk\Models\User;
 use budisteikul\coresdk\Models\ChangeEmail;
 use Carbon\Carbon;

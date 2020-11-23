@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use budisteikul\coresdk\Mail\ChangeEmailMail;
 
-class ChangeEmailNotifications extends Notification
+class ChangeEmailNotification extends Notification
 {
     use Queueable;
 

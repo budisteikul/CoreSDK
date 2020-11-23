@@ -19,10 +19,9 @@ class ResetPasswordMail extends Mailable
      *
      * @return void
      */
-    public function __construct($token,$email)
+    public function __construct($token,$user)
     {
-		$this->email = $email;
-		$this->user = User::where('email',$this->email)->first();
+		$this->user = $user;
 		$this->action_url = route('password.reset',[ 'token' => $token ]);
     }
 

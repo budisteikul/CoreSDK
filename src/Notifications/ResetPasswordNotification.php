@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use budisteikul\coresdk\Mail\ResetPasswordMail;
 
-class ResetPasswordNotifications extends Notification
+class ResetPasswordNotification extends Notification
 {
     use Queueable;
 
@@ -17,10 +17,10 @@ class ResetPasswordNotifications extends Notification
      *
      * @return void
      */
-    public function __construct($token,$email)
+    public function __construct($token,$user)
     {
         $this->token = $token;
-    	$this->email = $email;
+    	$this->user = $user;
 	}
 
     /**
@@ -42,7 +42,7 @@ class ResetPasswordNotifications extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new ResetPasswordMail($this->token,$this->email));
+        return (new ResetPasswordMail($this->token,$this->user));
     }
 
     /**

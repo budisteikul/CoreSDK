@@ -4,7 +4,7 @@ namespace budisteikul\coresdk\Controllers;
 
 use budisteikul\coresdk\Models\User;
 use App\Http\Controllers\Controller;
-use budisteikul\coresdk\Notifications\VerifyEmailNotifications;
+use budisteikul\coresdk\Notifications\VerifyEmailNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -83,8 +83,7 @@ $validator = Validator::make($request->all(), [
 		
 		Auth::login($user);
 		
-		$user->notify(new VerifyEmailNotifications($user));
-   		//Mail::send(new VerifyEmail($user));
+		$user->notify(new VerifyEmailNotification($user));
 		
 		
        	return response()->json([

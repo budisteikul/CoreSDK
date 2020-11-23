@@ -5,8 +5,8 @@ namespace budisteikul\coresdk\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
-use App\User;
-use budisteikul\coresdk\Notifications\VerifyEmailNotifications;
+use budisteikul\coresdk\Models\User;
+use budisteikul\coresdk\Notifications\VerifyEmailNotification;
 use Illuminate\Auth\Events\Verified;
 
 class VerificationController extends Controller
@@ -76,7 +76,7 @@ class VerificationController extends Controller
 			]);
         }
 
-		$request->user()->notify(new VerifyEmailNotifications($request->user()));
+		$request->user()->notify(new VerifyEmailNotification($request->user()));
 		
         return response()->json([
     		'id' => '1',

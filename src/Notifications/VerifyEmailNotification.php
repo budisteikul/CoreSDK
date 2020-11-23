@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use budisteikul\coresdk\Mail\VerifyEmailMail;
 
 
-class VerifyEmailNotifications extends Notification
+class VerifyEmailNotification extends Notification
 {
     use Queueable;
 
