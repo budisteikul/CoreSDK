@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-use App\User;
+use budisteikul\coresdk\Models\User;
 use Illuminate\Support\Facades\URL;
 
 class ResetPasswordMail extends Mailable
@@ -22,7 +22,7 @@ class ResetPasswordMail extends Mailable
     public function __construct($token,$email)
     {
 		$this->email = $email;
-		$this->user = \App\User::where('email',$this->email)->first();
+		$this->user = User::where('email',$this->email)->first();
 		$this->action_url = route('password.reset',[ 'token' => $token ]);
     }
 
