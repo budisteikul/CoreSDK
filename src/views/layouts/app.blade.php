@@ -11,7 +11,7 @@
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>My Application</title>
+  <title>{{env('APP_NAME')}}</title>
 
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -144,6 +144,36 @@
           </div>
         </div>
       </li>
+
+ <!-- ##################################################################### -->
+
+ <hr class="sidebar-divider my-0">
+      <li class="nav-item 
+      
+        {{ (request()->is('cms/toursdk/page*')) ? 'active' : '' }}
+      
+      ">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+          <i class="fas fa-globe-asia"></i>
+          <span>WEBSITE</span>
+        </a>
+        <div id="collapse4" class="collapse 
+        
+        {{ (request()->is('cms/toursdk/page*')) ? 'show' : '' }}
+        
+        " aria-labelledby="heading1" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            
+            <a class="collapse-item {{ (request()->is('cms/toursdk/page*')) ? 'active' : '' }}" href="{{ route('route_toursdk_page.index') }}"><i class="far fa-circle"></i> {{ __('Page') }}</a>
+            
+           
+          </div>
+        </div>
+      </li>
+
+      <!-- ##################################################################### -->
+
+
       <hr class="sidebar-divider d-none d-md-block">
 
       <div class="text-center d-none d-md-inline">
@@ -204,7 +234,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; My Application 2020</span>
+            <span>Copyright &copy; {{env('APP_NAME')}} 2020</span>
           </div>
         </div>
       </footer>
