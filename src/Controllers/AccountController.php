@@ -177,7 +177,7 @@ class AccountController extends Controller
 					['email'=>$new_email,'token'=>$token]
 				);
 				
-                $user->notify(new ChangeEmailNotifications($token,$new_email,$user->id));
+                $user->notify(new ChangeEmailNotification($token,$new_email,$user->id));
 			   
                 return response()->json([
                     "id" => "1",
