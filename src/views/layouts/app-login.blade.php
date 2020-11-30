@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>My Application</title>
+    <title>{{env('APP_NAME')}}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin-3.0.7.js') }}"></script>
