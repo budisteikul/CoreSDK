@@ -52,5 +52,22 @@ class GeneralHelper {
     {
         return number_format($exp, 0, ',', '.');
     }
+
+    public static function roundCurrency($value,$currency="IDR")
+    {
+    	if($currency=="IDR")
+    	{
+    		$hundred = substr($value, -3);
+ 			if($hundred<500)
+ 			{
+ 				$value = $value - $hundred;
+ 			}
+			else
+			{
+ 				$value = $value + (1000-$hundred);
+			}
+    	}
+		return $value;
+    }
 }
 ?>
