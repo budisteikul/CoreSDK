@@ -50,7 +50,7 @@ class GeneralHelper {
 
 	public static function numberFormat($exp)
     {
-        return number_format($exp, 0, ',');
+        return number_format($exp, 0, ',','');
     }
 
     public static function roundCurrency($value,$currency="IDR")
