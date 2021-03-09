@@ -50,7 +50,15 @@ class GeneralHelper {
 
 	public static function numberFormat($exp)
     {
-        return number_format($exp, 0, ',',',');
+    	if(env('BOKUN_CURRENCY')=="IDR")
+    	{
+    		return number_format($exp, 0, ',','');
+    	}
+    	else
+    	{
+    		return number_format($exp, 2, '.','');
+    	}
+        
     }
 
     public static function roundCurrency($value,$currency="IDR")
