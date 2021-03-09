@@ -52,7 +52,7 @@ class GeneralHelper {
     {
     	if(env('BOKUN_CURRENCY')=="IDR")
     	{
-    		return number_format($exp, 0, ',','');
+    		return number_format($exp, 0, ',',',');
     	}
     	else
     	{
