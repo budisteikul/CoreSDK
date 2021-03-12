@@ -162,7 +162,7 @@
 <script src="{{ asset('vendor/sbadmin2/sb-admin-2.js') }}"></script>
 
 @if(View::exists('toursdk::layouts.menu'))
-    <script src="{{ asset('assets/javascripts/apps/build/App-3.1.0.js') }}"></script>
+    <script src="{{ asset('assets/javascripts/apps/build/App-3.1.1.js') }}"></script>
 @endif
 
 </body>
