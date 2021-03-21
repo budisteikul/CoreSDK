@@ -10,7 +10,7 @@
     <title>{{env('APP_NAME')}}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/admin-3.0.7.js') }}"></script>
+    <script src="{{ asset('js/admin-'.env('APP_VERSION').'.js') }}"></script>
     
 
     <!-- Fonts -->
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/admin-3.0.7.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-'.env('APP_VERSION').'.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/sbadmin2/sb-admin-2.css') }}" rel="stylesheet">
 
     @stack('scripts')
