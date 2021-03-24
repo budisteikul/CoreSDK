@@ -5,9 +5,6 @@ namespace budisteikul\coresdk\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use budisteikul\outletsdk\Models\Outlets as Outlets;
-use Session;
-use URL;
 use Auth;
 
 class CoreMiddleware
