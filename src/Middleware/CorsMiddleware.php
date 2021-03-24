@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-class CoreMiddleware
+class CorsMiddleware
 {
     /**
      * Handle an incoming request.
