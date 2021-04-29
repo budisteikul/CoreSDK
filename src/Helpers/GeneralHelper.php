@@ -61,6 +61,26 @@ class GeneralHelper {
         
     }
 
+    public static function splitSpace($string,$number)
+    {
+    	$value = "";
+    	$max_string = strlen($string);
+    	$mod = $max_string % $number;
+    	$j = 0;
+    	for($i=0;$i<$max_string;$i++)
+    	{
+    		$value .= substr($string, $j, 4) .' ';
+    		$j += 4;
+    	}
+    	return trim($value);
+    }
+
+    public static function formatRupiah($angka)
+    {
+    	$hasil_rupiah = "Rp " . number_format($angka,0,',','.');
+		return $hasil_rupiah;
+    }
+
     public static function roundCurrency($value,$currency="IDR")
     {
     	if($currency=="IDR")
