@@ -3,6 +3,18 @@ namespace budisteikul\coresdk\Helpers;
 
 class GeneralHelper {
 	
+	public static function url($path)
+	{
+		if(env('APP_ENV')=="local")
+		{
+			return url($path);
+		}
+		else
+		{
+			return secure_url($path);
+		}
+	}
+
     public static function digitFormat($number,$digit)
     {
         $number = str_pad($number, $digit, '0', STR_PAD_LEFT);
