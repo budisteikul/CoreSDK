@@ -61,6 +61,7 @@
       <!-- ##################################################################### -->
       
       @includeIf('tourcms::layouts.menu')
+      @includeIf('indodaxsdk::layouts.menu')
 
       <!-- ##################################################################### -->
 
@@ -166,6 +167,8 @@
 @if(View::exists('tourcms::layouts.menu'))
     <script src="{{ asset('assets/javascripts/apps/build/App-3.1.1.js') }}"></script>
 @endif
+
+
 
 </body>
 </html>

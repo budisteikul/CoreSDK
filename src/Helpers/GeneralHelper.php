@@ -43,6 +43,9 @@ class GeneralHelper {
 			case 9:
 				return \Carbon\Carbon::parse($date)->format('d F Y, H:i');
 			break;
+			case 10:
+				return \Carbon\Carbon::parse($date)->format('d F Y, H:i:s');
+			break;
 			default:
 				return \Carbon\Carbon::now()->toDateTimeString();
 		}
