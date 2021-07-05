@@ -66,7 +66,7 @@ class LoginController extends Controller
 		$url = $request->input('url');
 
 
-            $url = "/home";
+            //$url = "/home";
         
 		if(Route::has('route_usersdk_users.index'))
         {
