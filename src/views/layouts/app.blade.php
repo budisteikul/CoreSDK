@@ -86,11 +86,8 @@
           </button>
           <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link" target="_blank" href="/mails">
-                <i class="fas fa-envelope fa-fw"></i>
-              </a>     
-            </li>
+            @includeIf('mail::layouts.menu')
+            
 
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
