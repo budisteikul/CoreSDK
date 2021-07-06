@@ -85,6 +85,13 @@
             <i class="fa fa-bars"></i>
           </button>
           <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link" target="_blank" href="/mails">
+                <i class="fas fa-envelope fa-fw"></i>
+              </a>     
+            </li>
+
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
