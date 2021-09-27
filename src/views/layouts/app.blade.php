@@ -1,4 +1,4 @@
-@inject('General', 'budisteikul\coresdk\Helpers\GeneralHelper')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,8 +94,6 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 text-right">
                   {{ Auth::user()->name }} 
-                  <br />
-                  <b>{{ $General->dateFormat("",6) }}</b>
                 </span>
                 <i class="ml-2 fas fa-3x fa-user-circle"></i>
               </a>
