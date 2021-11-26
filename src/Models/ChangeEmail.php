@@ -13,6 +13,6 @@ class ChangeEmail extends Model
 	
 	public function User()
     {
-        return $this->belongsTo('budisteikul\coresdk\Models\User','user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
 }

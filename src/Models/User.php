@@ -25,6 +25,6 @@ class User extends Authenticatable implements MustVerifyEmail
 	
 	public function ChangeEmail()
 	{
-		return $this->hasOne('budisteikul\coresdk\Models\ChangeEmail','user_id');	
+		return $this->hasOne(ChangeEmail::class,'user_id');	
 	}
 }
