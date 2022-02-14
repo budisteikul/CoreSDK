@@ -9,7 +9,6 @@
     ],
     "require": {
     	"laravel/ui": "*",
-        "yajra/laravel-datatables-buttons": "^4.9",
         "yajra/laravel-datatables-oracle": "^9.9"
     },
     "autoload": {
