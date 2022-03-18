@@ -19,7 +19,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "budisteikul\\toursdk\\CoreSDKServiceProvider"
+                "budisteikul\\coresdk\\CoreSDKServiceProvider"
             ]
         }
     }
