@@ -62,6 +62,7 @@
       
       @includeIf('layouts.menu')
       @includeIf('tourcms::layouts.menu')
+      @includeIf('fin::layouts.menu')
 
       <!-- ##################################################################### -->
 
