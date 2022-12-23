@@ -12,7 +12,8 @@
     },
     "autoload": {
    		"psr-4": {
-        	"budisteikul\\coresdk\\": "src/"
+        	"budisteikul\\coresdk\\": "src/",
+            "yajra/laravel-datatables-buttons": "^9.1"
     	}
 	},
     "extra": {
