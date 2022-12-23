@@ -8,12 +8,12 @@
         }
     ],
     "require": {
-    	"laravel/ui": "*"
+    	"laravel/ui": "*",
+        "yajra/laravel-datatables-buttons": "^9.1"
     },
     "autoload": {
    		"psr-4": {
-        	"budisteikul\\coresdk\\": "src/",
-            "yajra/laravel-datatables-buttons": "^9.1"
+        	"budisteikul\\coresdk\\": "src/"
     	}
 	},
     "extra": {
