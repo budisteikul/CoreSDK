@@ -13,6 +13,7 @@ class CoreSDKServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->useStoragePath(env('APP_STORAGE', base_path() . '/storage'));
         $this->app['router']->aliasMiddleware('CoreMiddleware', \budisteikul\coresdk\Middleware\CoreMiddleware::class);
         $this->app['router']->aliasMiddleware('CorsMiddleware', \budisteikul\coresdk\Middleware\CorsMiddleware::class);
     }
