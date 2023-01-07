@@ -38,7 +38,7 @@ class AccountController extends Controller
             $token =  $request->input('token');
 			$changeEmail = ChangeEmail::where('user_id',$id)->where('token',$token)->first();
 			
-            if(!@count($changeEmail))
+            if(!$changeEmail)
             {
                     $message = '<div class="alert alert-danger">
         <h4><i class="icon fa fa-ban"></i> Error!</h4>
