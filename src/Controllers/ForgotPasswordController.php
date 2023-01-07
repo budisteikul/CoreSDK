@@ -52,7 +52,7 @@ class ForgotPasswordController extends Controller
        	}
 		
 		$user = User::where('email',$request->input('email'))->first();
-		if(!@count($user))
+		if(!$user)
 		{
 			return response()->json([
     		      'email' => "We can't find a user with that e-mail address."
