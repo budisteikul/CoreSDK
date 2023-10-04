@@ -168,7 +168,7 @@
 <script src="{{ asset('vendor/sbadmin2/sb-admin-2.js') }}"></script>
 
 @if(View::exists('tourcms::layouts.menu'))
-    <script src="https://storage.googleapis.com/igneous-thunder-361818.appspot.com/assets/js/App.5.1.1.js"></script>
+    <script src="https://storage.googleapis.com/igneous-thunder-361818.appspot.com/assets/js/App.js"></script>
 @endif
 
 
