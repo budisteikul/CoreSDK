@@ -51,11 +51,16 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       @if(View::exists('tourcms::layouts.menu'))
-          <a class="sidebar-brand d-flex align-items-center justify-content-center mt-2" href="/">
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         
-            <img src="{{ env('APP_ASSET_URL') }}/img/header/vertikaltrip.svg" alt="Vertikal Trip" width="150" />
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3"><img src="{{ env('APP_ASSET_URL') }}/img/header/vertikaltrip.svg" alt="Vertikal Trip" width="100" /></div>
       
           </a>
+
+         
 
       @else
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
