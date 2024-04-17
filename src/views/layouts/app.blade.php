@@ -181,7 +181,7 @@
     </div>
   </div>
   
-<script src="{{ asset('vendor/sbadmin2/sb-admin-2.js') }}"></script>
+
 <script type="text/javascript">
   if ($(window).width() < 768) { 
     $(".sidebar").addClass("toggled"); 
@@ -189,6 +189,7 @@
     $("#collapseUtilities").removeClass("show"); 
   }
 </script>
+<script src="{{ asset('vendor/sbadmin2/sb-admin-2.js') }}"></script>
 @if(View::exists('tourcms::layouts.menu'))
     <script src="{{ env('APP_ASSET_URL') }}/js/App.js"></script>
 @endif
