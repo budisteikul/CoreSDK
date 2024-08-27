@@ -56,7 +56,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-rocket"></i>
             </div>
-            <div class="sidebar-brand-text mx-3"><img src="{{ env('APP_ASSET_URL') }}/img/header/vertikaltrip.svg" alt="Vertikal Trip" width="100" /></div>
+            <div class="sidebar-brand-text mx-3">ADMIN PANEL</div>
       
           </a>
 
