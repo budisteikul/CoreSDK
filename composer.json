@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-    	"laravel/ui": "*"
+    	"laravel/ui": "*",
+        "yajra/laravel-datatables-buttons": "^9.1"
     },
     "autoload": {
    		"psr-4": {
