@@ -9,6 +9,7 @@
     ],
     "require": {
     	"laravel/ui": "*",
+        "laravel/sanctum": "^3.3",
         "yajra/laravel-datatables-buttons": "^9.1"
     },
     "autoload": {
