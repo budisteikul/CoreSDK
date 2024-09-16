@@ -47,6 +47,24 @@ class LoginController extends Controller
 		return view('coresdk::login');
 	}
 	
+	public function logout(Request $request)
+	{
+		if(Route::has('route_tourcms_booking.index'))
+        {
+        	Cache::forget(Auth::user()->email.'_token');
+        }
+
+    	Auth::logout();
+ 
+    	$request->session()->invalidate();
+ 
+    	$request->session()->regenerateToken();
+ 		
+
+
+    	return redirect('/');
+	}
+
 	public function login(Request $request)
     {
 		$validator = Validator::make($request->all(), [
@@ -91,7 +109,7 @@ class LoginController extends Controller
 
             	$contents = json_decode($response->getBody()->getContents());
 
-            	Cache::put($email, $contents->token);
+            	Cache::put($email.'_token', $contents->token);
 
     			return response()->json([
     				'id' => '1',

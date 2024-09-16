@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         print_r(Auth::user()->email);
-        print_r(Cache::get(Auth::user()->email));
+        print_r(Cache::get(Auth::user()->email.'_token'));
         return view('coresdk::home');
     }
 }
