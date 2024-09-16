@@ -3,6 +3,8 @@
 namespace budisteikul\coresdk\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        print_r(Auth::user()->email);
+        print_r(Cache::get(Auth::user()->email));
         return view('coresdk::home');
     }
 }
