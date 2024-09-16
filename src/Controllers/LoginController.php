@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cache;
 
 class LoginController extends Controller
 {
@@ -66,15 +67,37 @@ class LoginController extends Controller
 		$url = $request->input('url');
 
 
-            //$url = "/home";
-        
-		if(Route::has('route_usersdk_users.index'))
+		if(Route::has('route_tourcms_booking.index'))
         {
-			if (Auth::attempt(['email' => $email, 'password' => $password, 'status' => 1], $remember)) {
-    		return response()->json([
-    			'id' => '1',
-    			'message' => $url
-			]);
+			if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+				
+				$endpoint = env("APP_API_URL");
+				$path = '/create-token';
+            	$headers = [
+                	'content-type' => 'application/json',
+            	];
+
+            	$client = new \GuzzleHttp\Client(['headers' => $headers,'http_errors' => false]);
+
+            	$data  = [
+            		'email' => $email,
+            		'password' => $password
+            	];
+
+                $response = $client->request('POST',$endpoint.$path,
+                [   
+                    'json' => $data
+                ]);
+
+            	$contents = json_decode($response->getBody()->getContents());
+
+            	Cache::put($email, $contents->token);
+
+    			return response()->json([
+    				'id' => '1',
+    				'token' => $contents->token,
+    				'message' => $url
+				]);
 			}
 		}
 		else
